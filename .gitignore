@@ -3,11 +3,8 @@
 */logs/!index.html
 */cache/*
 */cache/!index.html
-*/system/*.*
-*/system/
 *index.php
 *index.html
-*/application/error/*
 */application/cache/*
 */application/config/autoload.php
 */application/config/config.php
