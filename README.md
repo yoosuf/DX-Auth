@@ -11,6 +11,8 @@ DX Auth is also build with internationalization in mind, so every string is avai
 
 It’s based on CL Auth 0.2.5 beta developed by Jason Ashdown.
 
+till the version 1.0.6 developerd by Dexcell
+
 What is the feature of DX Auth?
 
   * Basic auth (Login, logout, register, change password).
