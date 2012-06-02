@@ -26,8 +26,8 @@ What is the feature of DX Auth?
   * Custom permission for each role (optional).
   * Login attempt (optional). You can use this to display catpcha after specified try to login to prevent bot.
   * Event feature (For example: You can put your own code like PM welcome message after user activated, etc).
-  * Captcha (optional, native and reCAPTCHA is available).
+  * Captcha (optional, reCAPTCHA).
   * Simple admin panel (So you can customize it, include it into your own admin panel, or delete if you don’t need it).
   * Most of the feature is optional, means you can turn it off in config file, delete it, or just don’t use it.
 
-DX Auth is tested in CI 1.7.0, but should be working for above version.
+DX Auth is tested in CI 2.1
