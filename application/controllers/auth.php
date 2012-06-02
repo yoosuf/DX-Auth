@@ -1,5 +1,5 @@
 <?php
-class Auth extends Controller
+class Auth extends CI_Controller
 {
 	// Used for registering and changing password form validation
 	var $min_username = 4;
@@ -7,9 +7,9 @@ class Auth extends Controller
 	var $min_password = 4;
 	var $max_password = 20;
 
-	function Auth()
+	function __construct()
 	{
-		parent::Controller();
+		parent::__construct();
 		
 		$this->load->library('Form_validation');
 		$this->load->library('DX_Auth');			
@@ -144,6 +144,7 @@ class Auth extends Controller
 		$data['auth_message'] = 'You have been logged out.';		
 		$this->load->view($this->dx_auth->logout_view, $data);
 	}
+	/*
 	
 	function register()
 	{		
@@ -183,7 +184,7 @@ class Auth extends Controller
 				// Is registration using captcha
 				if ($this->dx_auth->captcha_registration)
 				{
-					$this->dx_auth->captcha();										
+					//$this->dx_auth->captcha();										
 				}
 
 				// Load registration page
@@ -200,9 +201,9 @@ class Auth extends Controller
 			$data['auth_message'] = 'You have to logout first, before registering.';
 			$this->load->view($this->dx_auth->logged_in_view, $data);
 		}
-	}
+	}*/
 	
-	function register_recaptcha()
+	function register()
 	{
 		if ( ! $this->dx_auth->is_logged_in() AND $this->dx_auth->allow_registration)
 		{	
@@ -242,7 +243,7 @@ class Auth extends Controller
 			else
 			{
 				// Load registration page
-				$this->load->view('auth/register_recaptcha_form');
+				$this->load->view('auth/register_form');
 			}
 		}
 		elseif ( ! $this->dx_auth->allow_registration)

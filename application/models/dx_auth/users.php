@@ -1,10 +1,10 @@
 <?php
 
-class Users extends Model 
+class Users extends CI_Model 
 {
-	function Users()
+	function __construct()
 	{
-		parent::Model();
+		parent::__construct();
 
 		// Other stuff
 		$this->_prefix = $this->config->item('DX_table_prefix');

@@ -1223,77 +1223,7 @@ class DX_Auth
 	}
 	
 	/* End of main function */
-	
-	/* Captcha related function */
 
-	function captcha()
-	{
-		$this->ci->load->helper('url');
-	
-		$this->ci->load->plugin('dx_captcha');
-		
-		$captcha_dir = trim($this->ci->config->item('DX_captcha_path'), './');
-
-		$vals = array(
-			'img_path'	 	=> './'.$captcha_dir.'/',
-			'img_url'			=> base_url().$captcha_dir.'/',
-			'font_path'	 	=> $this->ci->config->item('DX_captcha_fonts_path'),
-			'font_size'  	=> $this->ci->config->item('DX_captcha_font_size'),
-			'img_width'	 	=> $this->ci->config->item('DX_captcha_width'),
-			'img_height' 	=> $this->ci->config->item('DX_captcha_height'),
-			'show_grid'	 	=> $this->ci->config->item('DX_captcha_grid'),
-			'expiration' 	=> $this->ci->config->item('DX_captcha_expire')
-		);
-		
-		$cap = create_captcha($vals);
-
-		$store = array(
-			'captcha_word' => $cap['word'],
-			'captcha_time' => $cap['time']
-		);
-
-		// Plain, simple but effective
-		$this->ci->session->set_flashdata($store);
-
-		// Set our captcha
-		$this->_captcha_image = $cap['image'];
-	}
-	
-	function get_captcha_image()
-	{
-		return $this->_captcha_image;
-	}
-	
-	// Check if captcha already expired
-	// Use this in callback function in your form validation
-	function is_captcha_expired()
-	{
-		// Captcha Expired
-		list($usec, $sec) = explode(" ", microtime());
-		$now = ((float)$usec + (float)$sec);	
-		
-		// Check if captcha already expired
-		return (($this->ci->session->flashdata('captcha_time') + $this->ci->config->item('DX_captcha_expire')) < $now);						
-	}
-	
-	// Check is captcha match with code
-	// Use this in callback function in your form validation
-	function is_captcha_match($code)
-	{
-		if ($this->ci->config->item('DX_captcha_case_sensitive'))
-		{
-			// Just check if code is the same value with flash data captcha_word which created in captcha() function		
-			$result = ($code == $this->ci->session->flashdata('captcha_word'));
-		}
-		else
-		{
-			$result = strtolower($code) == strtolower($this->ci->session->flashdata('captcha_word'));
-		}
-		
-		return $result;
-	}		
-	
-	/* End of captcha related function */
 	
 	/* Recaptcha function */		
 		

@@ -1,9 +1,9 @@
 <?php
-class Backend extends Controller
+class Backend extends CI_Controller
 {
-	function Backend()
+	function __construct()
 	{
-		parent::Controller();
+		parent::__construct();
 		
 		$this->load->library('Table');
 		$this->load->library('Pagination');
