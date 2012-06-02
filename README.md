@@ -1,14 +1,6 @@
 DX-Auth - CodeIgniter Auth Library
 =======
 
-Note
-====
-Not ready for Version 2, please contribute your ideas
-
-* Please add the fature request https://github.com/eyoosuf/DX-Auth/issues
-* Issues 
-
-
 
 Introduction
 ===
