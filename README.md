@@ -1,6 +1,7 @@
 DX-Auth - CodeIgniter Auth Library
 =======
 
+Download https://github.com/eyoosuf/DX-Auth/zipball/version-1.2
 
 Introduction
 ===
