@@ -23,3 +23,11 @@
 /system
 /application/errors
 .DS_Store
+
+application/.htaccess
+
+README.md
+
+application/views/welcome_message.php
+
+application/controllers/welcome.php
