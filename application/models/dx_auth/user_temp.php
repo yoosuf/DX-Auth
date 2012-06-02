@@ -2,9 +2,9 @@
 
 class User_Temp extends CI_Model 
 {
-	function User_Temp()
+	function __construct()
 	{
-		parent::Model();
+		parent::__construct();
 
 		// Other stuff
 		$this->_prefix = $this->config->item('DX_table_prefix');
