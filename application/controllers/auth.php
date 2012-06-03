@@ -47,24 +47,6 @@ class Auth extends CI_Controller
 		return $result;
 	}
 
-	function captcha_check($code)
-	{
-		$result = TRUE;
-		
-		if ($this->dx_auth->is_captcha_expired())
-		{
-			// Will replace this error msg with $lang
-			$this->form_validation->set_message('captcha_check', 'Your confirmation code has expired. Please try again.');			
-			$result = FALSE;
-		}
-		elseif ( ! $this->dx_auth->is_captcha_match($code))
-		{
-			$this->form_validation->set_message('captcha_check', 'Your confirmation code does not match the one in the image. Try again.');			
-			$result = FALSE;
-		}
-
-		return $result;
-	}
 	
 	function recaptcha_check()
 	{
@@ -144,64 +126,7 @@ class Auth extends CI_Controller
 		$data['auth_message'] = 'You have been logged out.';		
 		$this->load->view($this->dx_auth->logout_view, $data);
 	}
-	/*
 	
-	function register()
-	{		
-		if ( ! $this->dx_auth->is_logged_in() AND $this->dx_auth->allow_registration)
-		{	
-			$val = $this->form_validation;
-			
-			// Set form validation rules			
-			$val->set_rules('username', 'Username', 'trim|required|xss_clean|min_length['.$this->min_username.']|max_length['.$this->max_username.']|callback_username_check|alpha_dash');
-			$val->set_rules('password', 'Password', 'trim|required|xss_clean|min_length['.$this->min_password.']|max_length['.$this->max_password.']|matches[confirm_password]');
-			$val->set_rules('confirm_password', 'Confirm Password', 'trim|required|xss_clean');
-			$val->set_rules('email', 'Email', 'trim|required|xss_clean|valid_email|callback_email_check');
-			
-			if ($this->dx_auth->captcha_registration)
-			{
-				$val->set_rules('captcha', 'Confirmation Code', 'trim|xss_clean|required|callback_captcha_check');
-			}
-
-			// Run form validation and register user if it's pass the validation
-			if ($val->run() AND $this->dx_auth->register($val->set_value('username'), $val->set_value('password'), $val->set_value('email')))
-			{	
-				// Set success message accordingly
-				if ($this->dx_auth->email_activation)
-				{
-					$data['auth_message'] = 'You have successfully registered. Check your email address to activate your account.';
-				}
-				else
-				{					
-					$data['auth_message'] = 'You have successfully registered. '.anchor(site_url($this->dx_auth->login_uri), 'Login');
-				}
-				
-				// Load registration success page
-				$this->load->view($this->dx_auth->register_success_view, $data);
-			}
-			else
-			{
-				// Is registration using captcha
-				if ($this->dx_auth->captcha_registration)
-				{
-					//$this->dx_auth->captcha();										
-				}
-
-				// Load registration page
-				$this->load->view($this->dx_auth->register_view);
-			}
-		}
-		elseif ( ! $this->dx_auth->allow_registration)
-		{
-			$data['auth_message'] = 'Registration has been disabled.';
-			$this->load->view($this->dx_auth->register_disabled_view, $data);
-		}
-		else
-		{
-			$data['auth_message'] = 'You have to logout first, before registering.';
-			$this->load->view($this->dx_auth->logged_in_view, $data);
-		}
-	}*/
 	
 	function register()
 	{
@@ -402,5 +327,7 @@ class Auth extends CI_Controller
 			}
 		}
 	}
+
+
 }
 ?>
