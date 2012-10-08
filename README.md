@@ -1,7 +1,7 @@
 DX-Auth - CodeIgniter Auth Library Version 2 (Development Branch)
 =======
 
-Download version 1.0.6 https://github.com/eyoosuf/DX-Auth/zipball/version-1.0.6
+Download version 1.0.6 https://github.com/eyoosuf/DX-Auth/zipball/initial
 
 Introduction
 ===
@@ -12,7 +12,7 @@ DX Auth is also build with internationalization in mind, so every string is avai
 
 It’s based on CL Auth 0.2.5 beta developed by Jason Ashdown.
 
-till the version 1.0.6 developerd by Dexcell
+till the version 1.0.6 developed by Dexcell
 
 What is the feature of DX Auth?
 
@@ -30,7 +30,7 @@ What is the feature of DX Auth?
   * Login attempt (optional). You can use this to display catpcha after specified try to login to prevent bot.
   * Event feature (For example: You can put your own code like PM welcome message after user activated, etc).
   * Captcha (optional, reCAPTCHA).
-  * Simple admin panel (So you can customize it, include it into your own admin panel, or delete if you don’t need it).
+  * Simple admin panel (So you can customise it, include it into your own admin panel, or delete if you don’t need it).
   * Most of the feature is optional, means you can turn it off in config file, delete it, or just don’t use it.
 
 DX Auth is tested in CI 2.1
