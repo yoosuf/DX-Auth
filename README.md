@@ -34,3 +34,20 @@ What is the feature of DX Auth?
   * Most of the feature is optional, means you can turn it off in config file, delete it, or just don’t use it.
 
 DX Auth is tested in CI 2.1
+
+
+Contributing to DX-Auth
+===
+Your feedback is very welcome and will make this library much much better for you, me and everyone else. Besides feedback on code, features, suggestions and bug reports, you may want to actually make an impact on the code. For this:
+
+* Fork it.
+
+* Fix it.
+
+* Test it.
+
+* Commit it.
+
+Send me a pull request so I’ll… Pull it.
+
+If you feel DX-Auth has made your life easier, and you would like to express your thanks via a donation, my paypal email is in the contact details.
