@@ -1,4 +1,6 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
 class Auth extends CI_Controller
 {
 	// Used for registering and changing password form validation
@@ -12,7 +14,7 @@ class Auth extends CI_Controller
 		parent::__construct();
 		
 		$this->load->library('Form_validation');
-		$this->load->library('DX_Auth');			
+		$this->load->library('DX_Auth');
 		
 		$this->load->helper('url');
 		$this->load->helper('form');
@@ -69,15 +71,20 @@ class Auth extends CI_Controller
 			$val = $this->form_validation;
 			
 			// Set form validation rules
-			$val->set_rules('username', 'Username', 'trim|required|xss_clean');
-			$val->set_rules('password', 'Password', 'trim|required|xss_clean');
+			$val->set_rules('username', 'Username', 'trim|required');
+			$val->set_rules('password', 'Password', 'trim|required');
 			$val->set_rules('remember', 'Remember me', 'integer');
 
 			// Set captcha rules if login attempts exceed max attempts in config
 			if ($this->dx_auth->is_max_login_attempts_exceeded())
 			{
-				$val->set_rules('captcha', 'Confirmation Code', 'trim|required|xss_clean|callback_captcha_check');
+				$val->set_rules('captcha', 'Confirmation Code', 'trim|required|callback_captcha_check');
 			}
+
+			//$resultA = $val->run();
+			//$resultB = $this->dx_auth->login($val->set_value('username'), $val->set_value('password'), $val->set_value('remember'));
+
+
 				
 			if ($val->run() AND $this->dx_auth->login($val->set_value('username'), $val->set_value('password'), $val->set_value('remember')))
 			{
@@ -135,10 +142,10 @@ class Auth extends CI_Controller
 			$val = $this->form_validation;
 			
 			// Set form validation rules
-			$val->set_rules('username', 'Username', 'trim|required|xss_clean|min_length['.$this->min_username.']|max_length['.$this->max_username.']|callback_username_check|alpha_dash');
-			$val->set_rules('password', 'Password', 'trim|required|xss_clean|min_length['.$this->min_password.']|max_length['.$this->max_password.']|matches[confirm_password]');
-			$val->set_rules('confirm_password', 'Confirm Password', 'trim|required|xss_clean');
-			$val->set_rules('email', 'Email', 'trim|required|xss_clean|valid_email|callback_email_check');
+			$val->set_rules('username', 'Username', 'trim|required|min_length['.$this->min_username.']|max_length['.$this->max_username.']|callback_username_check|alpha_dash');
+			$val->set_rules('password', 'Password', 'trim|required|min_length['.$this->min_password.']|max_length['.$this->max_password.']|matches[confirm_password]');
+			$val->set_rules('confirm_password', 'Confirm Password', 'trim|required');
+			$val->set_rules('email', 'Email', 'trim|required|valid_email|callback_email_check');
 			
 			// Is registration using captcha
 			if ($this->dx_auth->captcha_registration)
@@ -146,7 +153,7 @@ class Auth extends CI_Controller
 				// Set recaptcha rules.
 				// IMPORTANT: Do not change 'recaptcha_response_field' because it's used by reCAPTCHA API,
 				// This is because the limitation of reCAPTCHA, not DX Auth library
-				$val->set_rules('recaptcha_response_field', 'Confirmation Code', 'trim|xss_clean|required|callback_recaptcha_check');
+				$val->set_rules('recaptcha_response_field', 'Confirmation Code', 'trim|required|callback_recaptcha_check');
 			}
 
 			// Run form validation and register user if it's pass the validation
@@ -168,7 +175,7 @@ class Auth extends CI_Controller
 			else
 			{
 				// Load registration page
-				$this->load->view('auth/register_form');
+				$this->load->view('Auth/register_form');
 			}
 		}
 		elseif ( ! $this->dx_auth->allow_registration)
@@ -207,7 +214,7 @@ class Auth extends CI_Controller
 		$val = $this->form_validation;
 		
 		// Set form validation rules
-		$val->set_rules('login', 'Username or Email address', 'trim|required|xss_clean');
+		$val->set_rules('login', 'Username or Email address', 'trim|required');
 
 		// Validate rules and call forgot password function
 		if ($val->run() AND $this->dx_auth->forgot_password($val->set_value('login')))
@@ -248,9 +255,9 @@ class Auth extends CI_Controller
 			$val = $this->form_validation;
 			
 			// Set form validation
-			$val->set_rules('old_password', 'Old Password', 'trim|required|xss_clean|min_length['.$this->min_password.']|max_length['.$this->max_password.']');
-			$val->set_rules('new_password', 'New Password', 'trim|required|xss_clean|min_length['.$this->min_password.']|max_length['.$this->max_password.']|matches[confirm_new_password]');
-			$val->set_rules('confirm_new_password', 'Confirm new Password', 'trim|required|xss_clean');
+			$val->set_rules('old_password', 'Old Password', 'trim|required|min_length['.$this->min_password.']|max_length['.$this->max_password.']');
+			$val->set_rules('new_password', 'New Password', 'trim|required|min_length['.$this->min_password.']|max_length['.$this->max_password.']|matches[confirm_new_password]');
+			$val->set_rules('confirm_new_password', 'Confirm new Password', 'trim|required');
 			
 			// Validate rules and change password
 			if ($val->run() AND $this->dx_auth->change_password($val->set_value('old_password'), $val->set_value('new_password')))
@@ -278,7 +285,7 @@ class Auth extends CI_Controller
 			$val = $this->form_validation;
 			
 			// Set form validation rules
-			$val->set_rules('password', 'Password', "trim|required|xss_clean");
+			$val->set_rules('password', 'Password', "trim|required");
 			
 			// Validate rules and change password
 			if ($val->run() AND $this->dx_auth->cancel_account($val->set_value('password')))
@@ -330,4 +337,3 @@ class Auth extends CI_Controller
 
 
 }
-?>

@@ -1,4 +1,6 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
 class Backend extends CI_Controller
 {
 	function __construct()
@@ -272,4 +274,3 @@ class Backend extends CI_Controller
 		$this->load->view('backend/custom_permissions', $data);
 	}
 }
-?>

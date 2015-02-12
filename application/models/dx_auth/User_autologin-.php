@@ -1,6 +1,6 @@
 <?php
 
-class User_Autologin extends CI_Model 
+class User_autologin extends CI_Model
 {
 	function __construct()
 	{
@@ -69,5 +69,3 @@ class User_Autologin extends CI_Model
 		return $this->db->delete($this->_table);
 	}
 }
-
-?>

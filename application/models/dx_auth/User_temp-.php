@@ -1,6 +1,6 @@
 <?php
 
-class User_Temp extends CI_Model 
+class User_temp extends CI_Model
 {
 	function __construct()
 	{
@@ -82,5 +82,3 @@ class User_Temp extends CI_Model
 		return $this->db->insert($this->_table, $data);
 	}
 }
-
-?>

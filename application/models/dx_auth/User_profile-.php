@@ -1,5 +1,5 @@
 <?php
-class User_Profile extends CI_Model 
+class User_profile extends CI_Model
 {
 	function __construct()
 	{
@@ -40,5 +40,3 @@ class User_Profile extends CI_Model
 		return $this->db->delete($this->_table);
 	}
 }
-
-?>

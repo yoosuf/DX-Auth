@@ -39,5 +39,3 @@ class Roles extends CI_Model
 		$this->db->delete($this->_table);		
 	}
 }
-
-?>
