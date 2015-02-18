@@ -13,13 +13,13 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 CREATE TABLE IF NOT EXISTS `ci_sessions` (
-  `session_id` varchar(40) collate utf8_bin NOT NULL default '0',
-  `ip_address` varchar(16) collate utf8_bin NOT NULL default '0',
-  `user_agent` varchar(150) collate utf8_bin NOT NULL,
-  `last_activity` int(10) unsigned NOT NULL default '0',
-  `user_data` text collate utf8_bin NOT NULL,
-  PRIMARY KEY  (`session_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+        `id` varchar(40) NOT NULL,
+        `ip_address` varchar(45) NOT NULL,
+        `timestamp` int(10) unsigned DEFAULT 0 NOT NULL,
+        `data` blob DEFAULT '' NOT NULL,
+        PRIMARY KEY (id),
+        KEY `ci_sessions_timestamp` (`timestamp`)
+);
 
 -- --------------------------------------------------------
 

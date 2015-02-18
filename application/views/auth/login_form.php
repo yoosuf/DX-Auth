@@ -30,7 +30,7 @@ $confirmation_code = array(
 
 <fieldset><legend>Login</legend>
 <?php echo form_open($this->uri->uri_string())?>
-
+<br>
 <?php echo $this->dx_auth->get_auth_error(); ?>
 
 

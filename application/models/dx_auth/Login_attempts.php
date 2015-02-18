@@ -1,5 +1,5 @@
 <?php
-class Login_Attempts extends CI_Model 
+class Login_attempts extends CI_Model
 {
 	function __construct()
 	{
@@ -35,4 +35,3 @@ class Login_Attempts extends CI_Model
 	}	
 	
 }
-?>

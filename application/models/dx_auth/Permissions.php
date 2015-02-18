@@ -223,5 +223,3 @@ class Permissions Extends CI_Model
 		return $this->db->get($this->_table);
 	}
 }
-
-?>

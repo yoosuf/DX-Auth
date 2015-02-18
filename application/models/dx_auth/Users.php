@@ -180,5 +180,3 @@ class Users extends CI_Model
 		return $this->db->update($this->_table);
 	}
 }
-
-?>
