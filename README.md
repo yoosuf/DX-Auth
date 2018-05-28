@@ -1,4 +1,5 @@
 DX-Auth - CodeIgniter Auth Library Version 2 (Development Branch)
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YGBGPDLRDQERQ)
 =======
 
 Download version 1.0.6 https://github.com/eyoosuf/DX-Auth/archive/initial.zip
@@ -51,3 +52,5 @@ Your feedback is very welcome and will make this library much much better for yo
 Send me a pull request so I’ll… Pull it.
 
 If you feel DX-Auth has made your life easier, and you would like to express your thanks via a donation, my paypal email is in the contact details.
+
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YGBGPDLRDQERQ)
